@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygame-3d-renderer"
+version = "0.1.0"
+description = "A small 3D renderer built on top of Pygame."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
