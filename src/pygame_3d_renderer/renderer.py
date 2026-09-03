@@ -1,5 +1,5 @@
 import pygame
-
+from . import vector
 
 X_SIZE = 1280
 Y_SIZE = 1024
@@ -14,7 +14,9 @@ def render():
     pygame.display.set_caption("Simple Pygame Triangle")
     clock = pygame.time.Clock()
 
-    cartesian_triangle = [(-20, 0), (0, 20), (20, 0)]
+    cartesian_triangle = [(-100, 0), (0, 100), (100, 0)]
+
+    cartesian_triangle = vector.rotate_2d_polygon(180, cartesian_triangle)
     
     triangle = list(map(map_from_cartesian_to_pixels, cartesian_triangle))
     background_color = (30, 30, 30)

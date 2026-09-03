@@ -15,7 +15,7 @@ def scale(factor, vector):
     return tuple([factor * coord for coord in vector])
 
 def length(vector):
-    return sqrt(sum(coord ** 2) for coord in vector)
+    return sqrt(sum(coord ** 2 for coord in vector))
 
 def to_polar(vector):
     return (length(vector), atan2(vector[1], vector[0]))
@@ -42,3 +42,21 @@ def rotate(angle, vector):
     length, angle_rad = to_polar(vector)
     new_angle = angle_rad + radians(angle)
     return to_cartesian((length, new_angle))
+
+def rotate_2d_polygon(angle, polygon):
+    return [rotate (angle, v) for v in polygon]
+
+def face_to_2d(face):
+    face_2d = []
+    for vertice in face:
+        x,y,_ = vertice
+        face_2d.append((x,y))
+    return face_2d
+
+def normal(face):
+    return cross_product(subtract(face[0], face[1]), subtract(face[0], face[2]))
+
+def unit(vector):
+    l = length(vector)
+    factor = 1/l
+    return scale(factor, vector)
