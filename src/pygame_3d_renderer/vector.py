@@ -3,7 +3,7 @@ from functools import reduce
 import operator
 
 def add(*vecs):
-    return tuple([sum(v) for v in zip(vecs)])
+    return tuple([sum(v) for v in zip(*vecs)])
 
 def multiply(*vectors):
     return tuple([prod(coords) for coords in zip(*vectors)])
